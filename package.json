@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/multer": "^1.4.12",
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.3"
   }
 }
