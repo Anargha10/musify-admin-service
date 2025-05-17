@@ -64,7 +64,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Welcome to the Admin Service!");
 });
-app.use(cors())
+app.use(cors({
+    origin: 'https://www.imanargha.shop',
+    credentials: true,
+  }));
 app.use('/api/v1', adminRoutes);
 
 // Add more routes as needed
