@@ -27,17 +27,20 @@ cloudinary.v2.config({
 })
 
 const app = express();
-app.use(cors({
-    origin: 'https://www.imanargha.shop', // Or specify '' if needed
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization','token'],
-    credentials:true
-}));
+app.use(
+    cors({
+      origin: "https://www.imanargha.shop",
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+    })
+  );
 
 
 const PORT = process.env.PORT ;
 
-app.use(express.json());
+app.use(express.json({ limit: "100mb" }));
+app.use(express.urlencoded({ extended: true, limit: "100mb" }));
+
  // Use the authentication middleware for all routes
  async function initDB() {
     try {
